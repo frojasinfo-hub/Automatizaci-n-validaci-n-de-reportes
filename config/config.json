@@ -1,0 +1,23 @@
+{
+    "input_folder": "input/pdfs",
+    "download_folder": "downloads",
+    "output_folder": "output",
+    "logs_folder": "logs",
+    "reports_folder": "reports",
+    "retry_attempts": 1,
+    "retry_wait_sec": 30,
+    "timeout_sec": 60,
+    "headless": false,
+    "notify_email": false,
+    "notify_teams": false,
+    "email": {
+        "smtp_host": "",
+        "smtp_port": 587,
+        "sender": "",
+        "password": "",
+        "recipients": []
+    },
+    "teams": {
+        "webhook_url": ""
+    }
+}

@@ -1,0 +1,404 @@
+timestamp,cedula,nombre,fuente,estado,intentos,error
+2026-06-04 17:45:17,70105844,GABRIEL JAIME TRUJILLO VELEZ,Procuraduria,FALLIDO,1,"Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), input[value*='Descargar' i], button:has-text('Descargar')"") to be visible
+"
+2026-06-04 17:45:33,70105844,GABRIEL JAIME TRUJILLO VELEZ,Policia,FALLIDO,1,"BrowserContext.close: Target page, context or browser has been closed
+Browser logs:
+
+<launching> C:\Program Files\Google\Chrome\Application\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --disable-blink-features=AutomationControlled --user-data-dir=C:\Users\FAFCB~1.ROJ\AppData\Local\Temp\playwright_chromiumdev_profile-JK6zZO --remote-debugging-pipe --no-startup-window
+<launched> pid=26008
+[pid=26008][err] [26008:16356:0604/174434.851:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=26008][err] [26008:16356:0604/174504.462:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=26008] <gracefully close start>"
+2026-06-04 17:45:33,70105844,GABRIEL JAIME TRUJILLO VELEZ,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 17:45:35,1037611766,SEBASTIAN MOLINA CORREA,Procuraduria,FALLIDO,1,Browser.new_context: Connection closed while reading from the driver
+2026-06-04 17:51:35,70105844,GABRIEL JAIME TRUJILLO VELEZ,Procuraduria,FALLIDO,1,"Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), input[value*='Descargar' i], button:has-text('Descargar')"") to be visible
+"
+2026-06-04 17:56:19,70105844,GABRIEL JAIME TRUJILLO VELEZ,Procuraduria,FALLIDO,1,"Timeout 60000ms exceeded while waiting for event ""download""
+=========================== logs ===========================
+waiting for event ""download""
+============================================================"
+2026-06-04 17:57:25,70105844,GABRIEL JAIME TRUJILLO VELEZ,Policia,EXITOSO,1,
+2026-06-04 17:58:21,70105844,GABRIEL JAIME TRUJILLO VELEZ,Fiscal,EXITOSO,1,
+2026-06-04 17:59:43,1037611766,SEBASTIAN MOLINA CORREA,Procuraduria,FALLIDO,1,"Timeout 60000ms exceeded while waiting for event ""download""
+=========================== logs ===========================
+waiting for event ""download""
+============================================================"
+2026-06-04 18:00:07,1037611766,SEBASTIAN MOLINA CORREA,Policia,FALLIDO,1,"BrowserContext.close: Target page, context or browser has been closed
+Browser logs:
+
+<launching> C:\Program Files\Google\Chrome\Application\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --disable-blink-features=AutomationControlled --user-data-dir=C:\Users\FAFCB~1.ROJ\AppData\Local\Temp\playwright_chromiumdev_profile-MdLtFm --remote-debugging-pipe --no-startup-window
+<launched> pid=22620
+[pid=22620][err] [22620:19648:0604/175504.108:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=22620][err] [22620:19648:0604/175531.451:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=22620][err] [22620:19648:0604/175615.407:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=22620][err] [22620:19648:0604/175812.687:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=22620][err] [22620:5000:0604/175943.773:ERROR:chrome\browser\ui\views\user_education\impl\browser_user_education_interface_impl.cc:181] Attempting to show IPH IPH_ExtensionsZeroStatePromo before browser initialization complete; IPH will not be shown.
+[pid=22620] <gracefully close start>"
+2026-06-04 18:00:07,1037611766,SEBASTIAN MOLINA CORREA,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 18:00:08,12232444,JOSE RICARDO TRUJILLO TOBAR,Procuraduria,FALLIDO,1,Browser.new_context: Connection closed while reading from the driver
+2026-06-04 18:05:15,70105844,GABRIEL JAIME TRUJILLO VELEZ,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 60000ms exceeded.
+Call log:
+  - waiting for locator(""select#ddlTipoID"") to be visible
+"
+2026-06-04 18:05:29,70105844,GABRIEL JAIME TRUJILLO VELEZ,Policia,FALLIDO,1,"BrowserContext.close: Target page, context or browser has been closed
+Browser logs:
+
+<launching> C:\Program Files\Google\Chrome\Application\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --disable-blink-features=AutomationControlled --user-data-dir=C:\Users\FAFCB~1.ROJ\AppData\Local\Temp\playwright_chromiumdev_profile-b0O1F7 --remote-debugging-pipe --no-startup-window
+<launched> pid=10332
+[pid=10332][err] [10332:30000:0604/180415.465:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=10332][err] [10332:30000:0604/180443.937:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=10332] <gracefully close start>"
+2026-06-04 18:05:29,70105844,GABRIEL JAIME TRUJILLO VELEZ,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 18:08:06,70105844,GABRIEL JAIME TRUJILLO VELEZ,Procuraduria,FALLIDO,1,"Page.wait_for_selector: Timeout 60000ms exceeded.
+Call log:
+  - waiting for locator(""select:visible"") to be visible
+"
+2026-06-04 18:09:03,70105844,GABRIEL JAIME TRUJILLO VELEZ,Policia,FALLIDO,1,"BrowserContext.close: Target page, context or browser has been closed
+Browser logs:
+
+<launching> C:\Program Files\Google\Chrome\Application\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --disable-blink-features=AutomationControlled --user-data-dir=C:\Users\FAFCB~1.ROJ\AppData\Local\Temp\playwright_chromiumdev_profile-FYad9a --remote-debugging-pipe --no-startup-window
+<launched> pid=33028
+[pid=33028][err] [33028:33384:0604/180702.498:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=33028][err] [33028:33384:0604/180730.827:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=33028][err] [33028:33384:0604/180812.423:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=33028] <gracefully close start>"
+2026-06-04 18:09:03,70105844,GABRIEL JAIME TRUJILLO VELEZ,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 18:09:05,1037611766,SEBASTIAN MOLINA CORREA,Procuraduria,FALLIDO,1,Browser.new_context: Connection closed while reading from the driver
+2026-06-04 18:11:47,70105844,GABRIEL JAIME TRUJILLO VELEZ,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), button:has-text('Descargar')"") to be visible
+"
+2026-06-04 18:16:03,70105844,GABRIEL JAIME TRUJILLO VELEZ,Policia,FALLIDO,1,[Policia] Se esperaba formAntecedentes.xhtml pero URL es: https://antecedentes.policia.gov.co:7005/WebJudicial/index.xhtml
+2026-06-04 18:16:07,70105844,GABRIEL JAIME TRUJILLO VELEZ,Fiscal,FALLIDO,1,"Page.wait_for_timeout: Target page, context or browser has been closed"
+2026-06-04 18:16:09,1037611766,SEBASTIAN MOLINA CORREA,Procuraduria,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 18:16:09,1037611766,SEBASTIAN MOLINA CORREA,Policia,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 18:16:09,1037611766,SEBASTIAN MOLINA CORREA,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 18:16:11,12232444,JOSE RICARDO TRUJILLO TOBAR,Procuraduria,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 18:16:11,12232444,JOSE RICARDO TRUJILLO TOBAR,Policia,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 18:16:11,12232444,JOSE RICARDO TRUJILLO TOBAR,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 18:16:58,70105844,GABRIEL JAIME TRUJILLO VELEZ,Procuraduria,AUTOMATICO,1,
+2026-06-04 18:17:54,70105844,GABRIEL JAIME TRUJILLO VELEZ,Policia,EXITOSO,1,
+2026-06-04 18:19:11,70105844,GABRIEL JAIME TRUJILLO VELEZ,Fiscal,EXITOSO,1,
+2026-06-04 18:19:46,1037611766,SEBASTIAN MOLINA CORREA,Procuraduria,AUTOMATICO,1,
+2026-06-04 18:20:47,1037611766,SEBASTIAN MOLINA CORREA,Policia,EXITOSO,1,
+2026-06-04 18:22:04,1037611766,SEBASTIAN MOLINA CORREA,Fiscal,EXITOSO,1,
+2026-06-04 18:22:40,12232444,JOSE RICARDO TRUJILLO TOBAR,Procuraduria,AUTOMATICO,1,
+2026-06-04 18:23:29,12232444,JOSE RICARDO TRUJILLO TOBAR,Policia,EXITOSO,1,
+2026-06-04 18:24:45,12232444,JOSE RICARDO TRUJILLO TOBAR,Fiscal,EXITOSO,1,
+2026-06-04 18:25:22,65738337,LUZ CLAUDIA CARDENAS RUBIO,Procuraduria,AUTOMATICO,1,
+2026-06-04 18:26:04,65738337,LUZ CLAUDIA CARDENAS RUBIO,Policia,EXITOSO,1,
+2026-06-04 18:27:20,65738337,LUZ CLAUDIA CARDENAS RUBIO,Fiscal,EXITOSO,1,
+2026-06-04 18:28:01,75076598,JORGE HERNAN MURIEL LOPEZ,Procuraduria,AUTOMATICO,1,
+2026-06-04 18:29:09,75076598,JORGE HERNAN MURIEL LOPEZ,Policia,EXITOSO,1,
+2026-06-04 18:30:38,75076598,JORGE HERNAN MURIEL LOPEZ,Fiscal,EXITOSO,1,
+2026-06-04 18:31:25,80036932,JULIAN ANDRES ACUNA GARCIA,Procuraduria,AUTOMATICO,1,
+2026-06-04 18:32:39,80036932,JULIAN ANDRES ACUNA GARCIA,Policia,EXITOSO,1,
+2026-06-04 18:34:35,80036932,JULIAN ANDRES ACUNA GARCIA,Fiscal,EXITOSO,1,
+2026-06-04 18:35:09,92540826,LUIS MOISES GOMEZ DIAZ,Procuraduria,AUTOMATICO,1,
+2026-06-04 18:36:40,92540826,LUIS MOISES GOMEZ DIAZ,Policia,EXITOSO,1,
+2026-06-04 18:37:48,92540826,LUIS MOISES GOMEZ DIAZ,Fiscal,EXITOSO,1,
+2026-06-04 18:39:33,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,AUTOMATICO,1,
+2026-06-04 18:39:45,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Policia,FALLIDO,1,[Policia] Se esperaba formAntecedentes.xhtml pero URL es: https://antecedentes.policia.gov.co:7005/WebJudicial/antecedentes.xhtml
+2026-06-04 18:39:51,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Fiscal,EXITOSO,1,
+2026-06-04 18:40:33,52219913,MARTHA ANGELICA MARTINEZ PIRAQUIVE,Procuraduria,AUTOMATICO,1,
+2026-06-04 18:42:48,52219913,MARTHA ANGELICA MARTINEZ PIRAQUIVE,Policia,FALLIDO,1,[Policia] Se esperaba formAntecedentes.xhtml pero URL es: https://antecedentes.policia.gov.co:7005/WebJudicial/index.xhtml
+2026-06-04 18:44:33,52219913,MARTHA ANGELICA MARTINEZ PIRAQUIVE,Fiscal,EXITOSO,1,
+2026-06-04 18:45:08,52045311,LINA PATRICIA VANEGAS MORENO,Procuraduria,AUTOMATICO,1,
+2026-06-04 18:47:14,52045311,LINA PATRICIA VANEGAS MORENO,Policia,EXITOSO,1,
+2026-06-04 18:48:56,52045311,LINA PATRICIA VANEGAS MORENO,Fiscal,EXITOSO,1,
+2026-06-04 18:49:27,52228912,ANGELA MARCELA ORTIZ ARDILA,Procuraduria,AUTOMATICO,1,
+2026-06-04 18:51:21,52228912,ANGELA MARCELA ORTIZ ARDILA,Policia,EXITOSO,1,
+2026-06-04 18:53:46,52228912,ANGELA MARCELA ORTIZ ARDILA,Fiscal,EXITOSO,1,
+2026-06-04 18:54:22,52811312,ANGELA PATRICIA ORTEGON CIFUENTES,Procuraduria,AUTOMATICO,1,
+2026-06-04 18:58:05,52811312,ANGELA PATRICIA ORTEGON CIFUENTES,Policia,FALLIDO,1,[Policia] Se esperaba formAntecedentes.xhtml pero URL es: https://antecedentes.policia.gov.co:7005/WebJudicial/index.xhtml
+2026-06-04 19:00:26,52811312,ANGELA PATRICIA ORTEGON CIFUENTES,Fiscal,EXITOSO,1,
+2026-06-04 19:01:13,43982965,LINA MARIA VELEZ GAVIRIA,Procuraduria,AUTOMATICO,1,
+2026-06-04 19:03:19,43982965,LINA MARIA VELEZ GAVIRIA,Policia,EXITOSO,1,
+2026-06-04 19:04:24,43982965,LINA MARIA VELEZ GAVIRIA,Fiscal,EXITOSO,1,
+2026-06-04 19:04:46,1037650380,ESTEFANI BLANDON SALDARRIAGA,Procuraduria,AUTOMATICO,1,
+2026-06-04 19:06:59,1037650380,ESTEFANI BLANDON SALDARRIAGA,Policia,FALLIDO,1,[Policia] Se esperaba formAntecedentes.xhtml pero URL es: https://antecedentes.policia.gov.co:7005/WebJudicial/index.xhtml
+2026-06-04 19:08:23,1037650380,ESTEFANI BLANDON SALDARRIAGA,Fiscal,EXITOSO,1,
+2026-06-04 19:08:57,1049649333,MARTA LUCIA VARGAS ROMERO,Procuraduria,AUTOMATICO,1,
+2026-06-04 19:11:03,1049649333,MARTA LUCIA VARGAS ROMERO,Policia,EXITOSO,1,
+2026-06-04 19:11:56,1049649333,MARTA LUCIA VARGAS ROMERO,Fiscal,EXITOSO,1,
+2026-06-04 20:06:23,901781865,CONSORCIO PENDERISCO I,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), button:has-text('Descargar')"") to be visible
+"
+2026-06-04 20:06:34,901781865,CONSORCIO PENDERISCO I,Fiscal,FALLIDO,1,"Page.screenshot: Target page, context or browser has been closed"
+2026-06-04 20:07:23,901781865,CONSORCIO PENDERISCO I,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), button:has-text('Descargar')"") to be visible
+"
+2026-06-04 20:21:46,901781865,CONSORCIO PENDERISCO I,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), button:has-text('Descargar')"") to be visible
+"
+2026-06-04 20:37:36,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), button:has-text('Descargar')"") to be visible
+"
+2026-06-04 20:38:25,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Policia,EXITOSO,1,
+2026-06-04 20:39:34,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Fiscal,EXITOSO,1,
+2026-06-04 20:47:53,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Timeout 30000ms exceeded while waiting for event ""page"""
+2026-06-04 20:48:05,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Policia,FALLIDO,1,"BrowserContext.close: Target page, context or browser has been closed
+Browser logs:
+
+<launching> C:\Program Files\Google\Chrome\Application\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --disable-blink-features=AutomationControlled --disable-infobars --no-first-run --no-default-browser-check --disable-popup-blocking --disable-features=IsolateOrigins,site-per-process --lang=es-CO --user-data-dir=C:\Users\FAFCB~1.ROJ\AppData\Local\Temp\playwright_chromiumdev_profile-D4tqvI --remote-debugging-pipe --no-startup-window
+<launched> pid=18208
+[pid=18208][err] [18208:29988:0604/204640.908:ERROR:net\cert\internal\cert_issuer_source_aia.cc:136] AiaRequest::OnFetchCompleted got error -301
+[pid=18208][err] [18208:29988:0604/204640.909:ERROR:net\cert\internal\cert_issuer_source_aia.cc:136] AiaRequest::OnFetchCompleted got error -301
+[pid=18208][err] [18208:32368:0604/204644.075:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=18208][err] Created TensorFlow Lite XNNPACK delegate for CPU.
+[pid=18208][err] [18208:32368:0604/204709.130:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=18208][err] [18208:32368:0604/204802.359:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=18208] <gracefully close start>"
+2026-06-04 20:48:05,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 20:53:37,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), button:has-text('Descargar')"") to be visible
+"
+2026-06-04 21:03:58,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), button:has-text('Descargar')"") to be visible
+"
+2026-06-04 21:05:30,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Policia,EXITOSO,1,
+2026-06-04 21:06:53,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Fiscal,EXITOSO,1,
+2026-06-04 21:07:36,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), button:has-text('Descargar')"") to be visible
+"
+2026-06-04 21:08:19,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), button:has-text('Descargar')"") to be visible
+"
+2026-06-04 21:15:29,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), button:has-text('Descargar')"").first to be visible
+"
+2026-06-04 21:15:40,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Policia,FALLIDO,1,"BrowserContext.close: Target page, context or browser has been closed
+Browser logs:
+
+<launching> C:\Program Files\Google\Chrome\Application\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --disable-blink-features=AutomationControlled --disable-infobars --no-first-run --no-default-browser-check --disable-popup-blocking --disable-features=IsolateOrigins,site-per-process --lang=es-CO --user-data-dir=C:\Users\FAFCB~1.ROJ\AppData\Local\Temp\playwright_chromiumdev_profile-nG7aBp --remote-debugging-pipe --no-startup-window
+<launched> pid=32848
+[pid=32848][err] [32848:2360:0604/211451.815:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=32848][err] Created TensorFlow Lite XNNPACK delegate for CPU.
+[pid=32848][err] [32848:2360:0604/211514.243:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=32848] <gracefully close start>"
+2026-06-04 21:15:40,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:15:40,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:15:41,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Policia,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:15:41,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:15:41,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:15:41,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Policia,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:15:41,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:18:54,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), button:has-text('Descargar')"").first to be visible
+"
+2026-06-04 21:29:40,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), button:has-text('Descargar')"").first to be visible
+"
+2026-06-04 21:29:47,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Policia,FALLIDO,1,"BrowserContext.close: Target page, context or browser has been closed
+Browser logs:
+
+<launching> C:\Program Files\Google\Chrome\Application\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --disable-blink-features=AutomationControlled --disable-infobars --no-first-run --no-default-browser-check --disable-popup-blocking --disable-features=IsolateOrigins,site-per-process --lang=es-CO --user-data-dir=C:\Users\FAFCB~1.ROJ\AppData\Local\Temp\playwright_chromiumdev_profile-gZZMH7 --remote-debugging-pipe --no-startup-window
+<launched> pid=34892
+[pid=34892][err] [34892:27216:0604/212833.826:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=34892][err] Created TensorFlow Lite XNNPACK delegate for CPU.
+[pid=34892][err] [34892:27216:0604/212859.508:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=34892] <gracefully close start>"
+2026-06-04 21:29:47,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:29:47,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:29:47,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Policia,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:29:47,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:29:47,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:29:47,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Policia,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:29:47,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:30:42,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), button:has-text('Descargar')"").first to be visible
+"
+2026-06-04 21:31:49,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), button:has-text('Descargar')"").first to be visible
+"
+2026-06-04 21:33:07,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""a:has-text('Descargar'), button:has-text('Descargar')"").first to be visible
+"
+2026-06-04 21:37:37,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Target page, context or browser has been closed
+=========================== logs ===========================
+waiting for event ""download""
+============================================================"
+2026-06-04 21:37:37,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Policia,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:37:37,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:37:37,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:37:37,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Policia,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:37:37,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:37:37,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:37:37,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Policia,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:37:37,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-04 21:39:22,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Procuraduria,FALLIDO,1,"Timeout 60000ms exceeded while waiting for event ""download""
+=========================== logs ===========================
+waiting for event ""download""
+============================================================"
+2026-06-05 08:15:09,901781865,CONSORCIO PENDERISCO I,Procuraduria,FALLIDO,1,"BrowserContext.close: Target page, context or browser has been closed
+Browser logs:
+
+<launching> C:\Program Files\Google\Chrome\Application\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --disable-blink-features=AutomationControlled --disable-infobars --no-first-run --no-default-browser-check --disable-popup-blocking --disable-features=IsolateOrigins,site-per-process --lang=es-CO --user-data-dir=C:\Users\FAFCB~1.ROJ\AppData\Local\Temp\playwright_chromiumdev_profile-SOeJMF --remote-debugging-pipe --no-startup-window
+<launched> pid=20176
+[pid=20176][err] [20176:5604:0605/081242.219:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=20176][err] Created TensorFlow Lite XNNPACK delegate for CPU.
+[pid=20176][err] [20176:5604:0605/081308.606:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=20176][err] [20176:5604:0605/081356.513:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=20176] <gracefully close start>"
+2026-06-05 08:15:09,901781865,CONSORCIO PENDERISCO I,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-05 08:28:34,901781865,CONSORCIO PENDERISCO I,Procuraduria,NO_ENCONTRADO,1,Número 901781865 no encontrado en Procuraduría (EL NÚMERO DE IDENTIFICACIÓN INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA)
+2026-06-05 08:30:36,901781865,CONSORCIO PENDERISCO I,Fiscal,FALLIDO,1,"Timeout 60000ms exceeded while waiting for event ""download""
+=========================== logs ===========================
+waiting for event ""download""
+============================================================"
+2026-06-05 08:31:00,819000939,INTERASEO S.A. E.S.P.,Procuraduria,NO_ENCONTRADO,1,Número 819000939 no encontrado en Procuraduría (EL NÚMERO DE IDENTIFICACIÓN INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA)
+2026-06-05 08:33:00,819000939,INTERASEO S.A. E.S.P.,Fiscal,FALLIDO,1,"Target page, context or browser has been closed
+=========================== logs ===========================
+waiting for event ""download""
+============================================================"
+2026-06-05 08:42:35,901781865,CONSORCIO PENDERISCO I,Fiscal,NO_ENCONTRADO,1,NIT 901781865 no válido o sin registros en Contraloría Fiscal (indicador: 'BOLETIN_RESPONSABLES_FISCALES')
+2026-06-05 08:43:53,819000939,INTERASEO S.A. E.S.P.,Fiscal,NO_ENCONTRADO,1,NIT 819000939 no válido o sin registros en Contraloría Fiscal (indicador: 'BOLETIN_RESPONSABLES_FISCALES')
+2026-06-05 08:44:48,1032422558,ANDRES EDUARDO ALVARADO GONZALEZ,Policia,EXITOSO,1,
+2026-06-05 08:45:41,52219913,MARTHA ANGELICA MARTINEZ PIRAQUIVE,Policia,EXITOSO,1,
+2026-06-05 08:46:35,52811312,ANGELA PATRICIA ORTEGON CIFUENTES,Policia,EXITOSO,1,
+2026-06-05 08:48:01,900943048,PWC CONTADORES Y AUDITORES SAS,Procuraduria,FALLIDO,1,[Procuraduria] No se detectó descarga. Verifique que hizo clic en el botón Descargar.
+2026-06-05 08:51:43,900943048,PWC CONTADORES Y AUDITORES SAS,Fiscal,NO_ENCONTRADO,1,NIT 900943048 no válido o sin registros en Contraloría Fiscal (indicador: 'BOLETIN_RESPONSABLES_FISCALES')
+2026-06-05 08:52:34,1037650380,ESTEFANI BLANDON SALDARRIAGA,Policia,FALLIDO,1,[Policia] Se esperaba formAntecedentes.xhtml pero URL es: https://antecedentes.policia.gov.co:7005/WebJudicial/antecedentes.xhtml
+2026-06-05 08:54:07,900943048,PWC CONTADORES Y AUDITORES SAS,Procuraduria,FALLIDO,1,[Procuraduria] No se detectó descarga. Verifique que hizo clic en el botón Descargar.
+2026-06-05 08:55:02,1037650380,ESTEFANI BLANDON SALDARRIAGA,Policia,EXITOSO,1,
+2026-06-05 08:55:15,900943048,PWC CONTADORES Y AUDITORES SAS,Procuraduria,NO_ENCONTRADO,1,Número 900943048 no encontrado en Procuraduría (EL NÚMERO DE IDENTIFICACIÓN INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA)
+2026-06-05 12:07:19,70555017,MIGUEL GONZALO PUERTA MESA,Procuraduria,FALLIDO,1,[Procuraduria] No se detectó descarga. Verifique que hizo clic en el botón Descargar.
+2026-06-05 12:08:42,70555017,MIGUEL GONZALO PUERTA MESA,Policia,EXITOSO,1,
+2026-06-05 12:10:06,70555017,MIGUEL GONZALO PUERTA MESA,Fiscal,EXITOSO,1,
+2026-06-05 12:13:18,70555017,MIGUEL GONZALO PUERTA MESA,Procuraduria,FALLIDO,1,[Procuraduria] No se detectó descarga. Verifique que hizo clic en el botón Descargar.
+2026-06-05 12:15:02,70555017,MIGUEL GONZALO PUERTA MESA,Procuraduria,FALLIDO,1,"BrowserContext.close: Target page, context or browser has been closed
+Browser logs:
+
+<launching> C:\Program Files\Google\Chrome\Application\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --disable-blink-features=AutomationControlled --disable-infobars --no-first-run --no-default-browser-check --disable-popup-blocking --disable-features=IsolateOrigins,site-per-process --lang=es-CO --user-data-dir=C:\Users\FAFCB~1.ROJ\AppData\Local\Temp\playwright_chromiumdev_profile-1uDsP6 --remote-debugging-pipe --no-startup-window
+<launched> pid=40268
+[pid=40268][err] [40268:12860:0605/120145.082:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=40268][err] Created TensorFlow Lite XNNPACK delegate for CPU.
+[pid=40268][err] [40268:12860:0605/120206.753:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=40268][err] [40268:12860:0605/120252.336:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=40268][err] [40268:12860:0605/120446.692:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=40268][err] [40268:38544:0605/120719.235:ERROR:chrome\browser\ui\views\user_education\impl\browser_user_education_interface_impl.cc:181] Attempting to show IPH IPH_ExtensionsZeroStatePromo before browser initialization complete; IPH will not be shown.
+[pid=40268][err] [40268:12860:0605/120804.888:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=40268][err] [40268:38544:0605/121006.658:ERROR:chrome\browser\ui\views\user_education\impl\browser_user_education_interface_impl.cc:181] Attempting to show IPH IPH_ExtensionsZeroStatePromo before browser initialization complete; IPH will not be shown.
+[pid=40268][err] [40268:38544:0605/121319.035:ERROR:chrome\browser\ui\views\user_education\impl\browser_user_education_interface_impl.cc:181] Attempting to show IPH IPH_ExtensionsZeroStatePromo before browser initialization complete; IPH will not be shown.
+[pid=40268][err] [40268:12860:0605/121338.130:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=40268] <gracefully close start>"
+2026-06-05 14:11:06,70555017,MIGUEL GONZALO PUERTA MESA,Procuraduria,FALLIDO,1,"Locator.click: Timeout 60000ms exceeded.
+Call log:
+  - waiting for locator(""iframe[src*='procuraduria'], iframe[src*='apps']"").first.content_frame.locator(""input[value='Generar'], button:has-text('Generar')"")
+    - locator resolved to <input type=""submit"" value=""Generar"" class=""Botones"" id=""btnExportar"" name=""btnExportar"" onclick=""return desacticare();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(""btnExportar"", """", true, ""1"", """", false, false))""/>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    5 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 500ms
+  - element was detached from the DOM, retrying
+"
+2026-06-05 14:12:08,70555017,MIGUEL GONZALO PUERTA MESA,Procuraduria,AUTOMATICO,1,
+2026-06-05 14:15:16,10113330,LUIS GUILLERMO MEJIA SERNA,Procuraduria,AUTOMATICO,1,
+2026-06-05 14:16:09,10113330,LUIS GUILLERMO MEJIA SERNA,Policia,EXITOSO,1,
+2026-06-05 14:17:17,10113330,LUIS GUILLERMO MEJIA SERNA,Fiscal,EXITOSO,1,
+2026-06-09 08:44:46,9017818652,CONSORCIO PENDERISCO I,Procuraduria,NO_ENCONTRADO,1,Número 9017818652 no encontrado en Procuraduría (EL NÚMERO DE IDENTIFICACIÓN INGRESADO NO SE ENCUENTRA REGISTRADO EN EL SISTEMA)
+2026-06-09 08:45:48,9017818652,CONSORCIO PENDERISCO I,Fiscal,NO_ENCONTRADO,1,NIT 9017818652 no válido o sin registros en Contraloría Fiscal (indicador: 'BOLETIN_RESPONSABLES_FISCALES')
+2026-06-09 08:49:28,8190009391,INTERASEO S.A. E.S.P.,Procuraduria,FALLIDO,1,"BrowserContext.close: Target page, context or browser has been closed
+Browser logs:
+
+<launching> C:\Program Files\Google\Chrome\Application\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --disable-blink-features=AutomationControlled --disable-infobars --no-first-run --no-default-browser-check --disable-popup-blocking --disable-features=IsolateOrigins,site-per-process --lang=es-CO --user-data-dir=C:\Users\FAFCB~1.ROJ\AppData\Local\Temp\playwright_chromiumdev_profile-3mHf6m --remote-debugging-pipe --no-startup-window
+<launched> pid=45292
+[pid=45292][err] [45292:27608:0609/084330.467:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: QUOTA_EXCEEDED
+[pid=45292][err] Created TensorFlow Lite XNNPACK delegate for CPU.
+[pid=45292][err] [45292:2772:0609/084626.960:ERROR:chrome\browser\ui\views\user_education\impl\browser_user_education_interface_impl.cc:181] Attempting to show IPH IPH_ExtensionsZeroStatePromo before browser initialization complete; IPH will not be shown.
+[pid=45292] <gracefully close start>"
+2026-06-09 08:49:28,8190009391,INTERASEO S.A. E.S.P.,Fiscal,FALLIDO,1,"Browser.new_context: Target page, context or browser has been closed"
+2026-06-09 09:07:14,8190009391,INTERASEO S.A. E.S.P.,Procuraduria,AUTOMATICO,1,
+2026-06-09 09:08:16,8190009391,INTERASEO S.A. E.S.P.,Fiscal,NO_ENCONTRADO,1,NIT 8190009391 no válido o sin registros en Contraloría Fiscal (indicador: 'BOLETIN_RESPONSABLES_FISCALES')
+2026-06-09 09:09:13,9009430484,PWC CONTADORES Y AUDITORES SAS,Procuraduria,AUTOMATICO,1,
+2026-06-09 09:11:25,9009430484,PWC CONTADORES Y AUDITORES SAS,Fiscal,NO_ENCONTRADO,1,NIT 9009430484 no válido o sin registros en Contraloría Fiscal (indicador: 'BOLETIN_RESPONSABLES_FISCALES')
+2026-06-09 10:16:28,9017818652,CONSORCIO PENDERISCO I,Fiscal,EXITOSO,1,
+2026-06-09 10:19:05,8190009391,INTERASEO S.A. E.S.P.,Fiscal,EXITOSO,1,
+2026-06-09 10:20:21,9009430484,PWC CONTADORES Y AUDITORES SAS,Fiscal,EXITOSO,1,
+2026-06-09 10:53:56,9873089,ANDRES FELIPE ARISTIZABAL TORO,Procuraduria,FALLIDO,1,[Procuraduria] Descarga automática fallida. Revise debug_procuraduria_descargar.png y debug_procuraduria_html.html
+2026-06-09 10:54:41,9873089,ANDRES FELIPE ARISTIZABAL TORO,Policia,EXITOSO,1,
+2026-06-09 10:55:34,9873089,ANDRES FELIPE ARISTIZABAL TORO,Fiscal,EXITOSO,1,
+2026-06-09 10:55:57,9873089,ANDRES FELIPE ARISTIZABAL TORO,Procuraduria,FALLIDO,1,[Procuraduria] Descarga automática fallida. Revise debug_procuraduria_descargar.png y debug_procuraduria_html.html
+2026-06-09 10:56:11,9873089,ANDRES FELIPE ARISTIZABAL TORO,Procuraduria,FALLIDO,1,[Procuraduria] Descarga automática fallida. Revise debug_procuraduria_descargar.png y debug_procuraduria_html.html
+2026-06-09 10:56:24,9873089,ANDRES FELIPE ARISTIZABAL TORO,Procuraduria,FALLIDO,1,[Procuraduria] Descarga automática fallida. Revise debug_procuraduria_descargar.png y debug_procuraduria_html.html
+2026-06-09 10:56:37,9873089,ANDRES FELIPE ARISTIZABAL TORO,Procuraduria,FALLIDO,1,[Procuraduria] Descarga automática fallida. Revise debug_procuraduria_descargar.png y debug_procuraduria_html.html
+2026-06-09 11:21:41,9873089,ANDRES FELIPE ARISTIZABAL TORO,Procuraduria,FALLIDO,1,"Locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for locator(""input[value='Generar'], button:has-text('Generar')"")
+"
+2026-06-09 11:22:58,9873089,ANDRES FELIPE ARISTIZABAL TORO,Procuraduria,FALLIDO,1,"Locator.click: Timeout 60000ms exceeded.
+Call log:
+  - waiting for locator(""input[value='Generar'], button:has-text('Generar')"")
+"
+2026-06-09 11:24:04,9873089,ANDRES FELIPE ARISTIZABAL TORO,Procuraduria,FALLIDO,1,"Locator.click: Timeout 60000ms exceeded.
+Call log:
+  - waiting for locator(""input[value='Generar'], button:has-text('Generar')"")
+"
+2026-06-09 11:25:09,9873089,ANDRES FELIPE ARISTIZABAL TORO,Procuraduria,FALLIDO,1,"Locator.click: Timeout 60000ms exceeded.
+Call log:
+  - waiting for locator(""input[value='Generar'], button:has-text('Generar')"")
+"
+2026-06-09 11:26:15,9873089,ANDRES FELIPE ARISTIZABAL TORO,Procuraduria,FALLIDO,1,"Locator.click: Timeout 60000ms exceeded.
+Call log:
+  - waiting for locator(""input[value='Generar'], button:has-text('Generar')"")
+"
+2026-06-09 16:11:55,9873089,ANDRES FELIPE ARISTIZABAL TORO,Procuraduria,AUTOMATICO,1,
+2026-06-09 16:12:10,10113330,LUIS GUILLERMO MEJIA SERNA,Procuraduria,AUTOMATICO,1,
+2026-06-09 16:21:21,8050216579,MOVITRANS S.A.S. BIC,Procuraduria,AUTOMATICO,1,
+2026-06-09 16:30:02,9873089,ANDRES FELIPE ARISTIZABAL TORO,Procuraduria,FALLIDO,1,[Procuraduria] Botón Descargar no apareció en 30s. Revise debug_procuraduria_resultado.png
+2026-06-09 16:31:28,79535241,CARLOS ALBERTO CANO CANO,Procuraduria,FALLIDO,1,[Procuraduria] Botón Descargar no apareció en 30s. Revise debug_procuraduria_resultado.png
+2026-06-09 16:37:10,9873089,ANDRES FELIPE ARISTIZABAL TORO,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 15000ms exceeded.
+Call log:
+  - waiting for locator(""input[type='button'][value*='Descargar'], button:has-text('Descargar'), input[value='Descargar'], a:has-text('Descargar')"").first to be visible
+"
+2026-06-09 16:37:58,79535241,CARLOS ALBERTO CANO CANO,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 15000ms exceeded.
+Call log:
+  - waiting for locator(""input[type='button'][value*='Descargar'], button:has-text('Descargar'), input[value='Descargar'], a:has-text('Descargar')"").first to be visible
+"
+2026-06-09 16:38:37,10113330,LUIS GUILLERMO MEJIA SERNA,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 15000ms exceeded.
+Call log:
+  - waiting for locator(""input[type='button'][value*='Descargar'], button:has-text('Descargar'), input[value='Descargar'], a:has-text('Descargar')"").first to be visible
+"
+2026-06-09 16:39:27,8050216579,MOVITRANS S.A.S. BIC,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 15000ms exceeded.
+Call log:
+  - waiting for locator(""input[type='button'][value*='Descargar'], button:has-text('Descargar'), input[value='Descargar'], a:has-text('Descargar')"").first to be visible
+"
+2026-06-09 16:40:22,9873089,ANDRES FELIPE ARISTIZABAL TORO,Procuraduria,FALLIDO,1,"Locator.wait_for: Timeout 15000ms exceeded.
+Call log:
+  - waiting for locator(""input[type='button'][value*='Descargar'], button:has-text('Descargar'), input[value='Descargar'], a:has-text('Descargar')"").first to be visible
+"
+2026-06-09 18:13:35,9873089,ANDRES FELIPE ARISTIZABAL TORO,Procuraduria,AUTOMATICO,1,
+2026-06-09 18:14:30,79535241,CARLOS ALBERTO CANO CANO,Procuraduria,FALLIDO,1,[Procuraduria] No navegó a verpdf.aspx en 30s. Revise debug_procuraduria_resultado.png
+2026-06-09 18:15:07,10113330,LUIS GUILLERMO MEJIA SERNA,Procuraduria,FALLIDO,1,[Procuraduria] No navegó a verpdf.aspx en 30s. Revise debug_procuraduria_resultado.png
+2026-06-09 18:15:53,8050216579,MOVITRANS S.A.S. BIC,Procuraduria,FALLIDO,1,[Procuraduria] No navegó a verpdf.aspx en 30s. Revise debug_procuraduria_resultado.png
+2026-06-09 18:16:30,79535241,CARLOS ALBERTO CANO CANO,Procuraduria,FALLIDO,1,[Procuraduria] No navegó a verpdf.aspx en 30s. Revise debug_procuraduria_resultado.png
+2026-06-09 18:17:28,10113330,LUIS GUILLERMO MEJIA SERNA,Procuraduria,AUTOMATICO,1,
+2026-06-09 18:18:00,8050216579,MOVITRANS S.A.S. BIC,Procuraduria,AUTOMATICO,1,
+2026-06-09 18:18:39,79535241,CARLOS ALBERTO CANO CANO,Procuraduria,AUTOMATICO,1,
