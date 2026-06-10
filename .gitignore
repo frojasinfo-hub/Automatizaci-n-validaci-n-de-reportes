@@ -1,0 +1,56 @@
+# ── Datos sensibles de clientes ─────────────────────────────────────────────
+input/pdfs/*.pdf
+input/pdfs/procesados/
+
+# ── Salidas generadas en tiempo de ejecución ────────────────────────────────
+output/*
+!output/.gitkeep
+logs/*
+!logs/.gitkeep
+reports/*
+!reports/.gitkeep
+downloads/*
+!downloads/.gitkeep
+
+# ── Archivos de depuración ───────────────────────────────────────────────────
+debug_*.png
+debug_*.html
+debug_*.txt
+debug_selectores.py
+
+# ── Scripts de uso interno / mantenimiento ───────────────────────────────────
+sync_historial.py
+fix_excel_pendiente.py
+
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Entorno virtual ──────────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+.env
+
+# ── IDE / editores ───────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+.DS_Store
+
+# ── Playwright ───────────────────────────────────────────────────────────────
+playwright-report/
+test-results/
+
+# ── Temporales de Excel ──────────────────────────────────────────────────────
+~$*.xlsx
+~$*.xls

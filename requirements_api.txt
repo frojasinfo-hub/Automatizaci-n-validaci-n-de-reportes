@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+streamlit
+httpx
+python-multipart
+pandas
