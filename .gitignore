@@ -17,6 +17,7 @@ debug_*.png
 debug_*.html
 debug_*.txt
 debug_selectores.py
+captcha_signal.txt
 
 # ── Scripts de uso interno / mantenimiento ───────────────────────────────────
 sync_historial.py
