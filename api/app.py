@@ -7,6 +7,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+import json
+
 import openpyxl
 from fastapi import FastAPI, HTTPException, Query, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -16,7 +18,12 @@ ROOT = Path(__file__).parent.parent
 INPUT_PDFS = ROOT / "input" / "pdfs"
 LOGS_DIR = ROOT / "logs"
 REPORTS_FILE = ROOT / "reports" / "resultado_consultas.xlsx"
-OUTPUT_CONSULTAS = ROOT / "output" / "CONSULTAS_AUTOMATIZADAS"
+
+_cfg = json.loads((ROOT / "config" / "config.json").read_text(encoding="utf-8"))
+_output = Path(_cfg.get("output_folder", "output"))
+if not _output.is_absolute():
+    _output = ROOT / _output
+OUTPUT_CONSULTAS = _output
 
 app = FastAPI(title="AutomatizaciónV1 API", version="1.0.0")
 app.add_middleware(
@@ -55,6 +62,17 @@ async def list_files() -> list[dict[str, Any]]:
     ]
 
 
+@app.delete("/api/files/clear")
+async def clear_files() -> dict[str, Any]:
+    processed = INPUT_PDFS / "procesados"
+    processed.mkdir(parents=True, exist_ok=True)
+    moved: list[str] = []
+    for pdf in INPUT_PDFS.glob("*.pdf"):
+        pdf.rename(processed / pdf.name)
+        moved.append(pdf.name)
+    return {"moved": len(moved), "files": moved}
+
+
 # ── Automation ────────────────────────────────────────────────────────────────
 
 @app.post("/api/automation/run")
@@ -63,11 +81,12 @@ async def automation_run() -> dict[str, Any]:
     if _proc is not None and _proc.poll() is None:
         return {"status": "already_running", "pid": _proc.pid}
 
-    # CREATE_NEW_CONSOLE abre ventana separada para que el operador resuelva CAPTCHAs
+    (ROOT / "captcha_signal.txt").write_text("")
+    # DETACHED_PROCESS + CREATE_NO_WINDOW: oculta la consola, Chrome sigue visible
     _proc = subprocess.Popen(
         [sys.executable, "src/main.py"],
         cwd=str(ROOT),
-        creationflags=subprocess.CREATE_NEW_CONSOLE,
+        creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NO_WINDOW,
     )
     return {"status": "started", "pid": _proc.pid}
 
@@ -98,6 +117,12 @@ async def automation_status() -> dict[str, Any]:
         "returncode": _proc.returncode if _proc else None,
         "log": log_lines,
     }
+
+
+@app.post("/api/automation/captcha_confirm")
+async def captcha_confirm() -> dict[str, str]:
+    (ROOT / "captcha_signal.txt").write_text("CONFIRMED")
+    return {"status": "ok"}
 
 
 # ── Reports ───────────────────────────────────────────────────────────────────

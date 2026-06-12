@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import time
 from pathlib import Path
 
 from src.core.base_consultor import BaseConsultor
@@ -12,6 +13,19 @@ from src.services.notificador import Notificador
 logger = LoggerManager()
 notificador = Notificador()
 
+_SIGNAL_FILE = Path(__file__).parent.parent.parent / "captcha_signal.txt"
+
+
+def _esperar_confirmacion_captcha(timeout: int = 300) -> None:
+    _SIGNAL_FILE.write_text("")
+    start = time.time()
+    while time.time() - start < timeout:
+        if _SIGNAL_FILE.read_text().strip() == "CONFIRMED":
+            _SIGNAL_FILE.write_text("")
+            return
+        time.sleep(0.5)
+    raise TimeoutError("CAPTCHA no confirmado en 5 minutos")
+
 _URL_NATURAL = (
     "https://cfiscal.contraloria.gov.co/Certificados/CertificadoPersonaNatural.aspx"
 )
@@ -20,6 +34,26 @@ _URL_JURIDICA = (
 )
 
 _SEL_BTN_BUSCAR = "input[value='Buscar'], button:has-text('Buscar')"
+
+_HALL_FIS_LIMPIO = "NO SE ENCUENTRA REPORTADO COMO RESPONSABLE FISCAL"
+_HALL_FIS_CON    = "SE ENCUENTRA REPORTADO COMO RESPONSABLE FISCAL"
+_HALL_FIS_NO_REG = "NO SE ENCUENTRA REGISTRADO EN EL SISTEMA"
+
+
+def _extraer_hallazgo_fiscal(pdf_path: Path) -> str:
+    try:
+        import pdfplumber
+        with pdfplumber.open(pdf_path) as pdf:
+            texto = " ".join(p.extract_text() or "" for p in pdf.pages).upper()
+        # Verificar negativo primero — contiene la substring del positivo
+        if "NO SE ENCUENTRA REPORTADO" in texto:
+            return _HALL_FIS_LIMPIO
+        if "SE ENCUENTRA REPORTADO" in texto:
+            return _HALL_FIS_CON
+    except Exception:
+        pass
+    return _HALL_FIS_NO_REG
+
 
 # Textos que indican NIT inválido o sin registros en Contraloría Fiscal
 _TEXTOS_ERROR_FISCAL = [
@@ -39,12 +73,18 @@ class ConsultorFiscal(BaseConsultor):
     def consultar(self, tercero: TerceroData):
         self._tipo_doc = tercero.tipo_documento
         try:
-            return super().consultar(tercero)
+            resultado = super().consultar(tercero)
+            if resultado.archivo_descargado:
+                resultado.hallazgo = _extraer_hallazgo_fiscal(
+                    Path(resultado.archivo_descargado)
+                )
+            return resultado
         except _FiscalNoEncontradoError as exc:
             # Resultado definitivo — no se reintenta, continúa con otras fuentes
             resultado = ResultadoFuente(fuente=self.nombre_fuente)
             resultado.estado = EstadoFuente.NO_ENCONTRADO
             resultado.error_mensaje = str(exc)
+            resultado.hallazgo = _HALL_FIS_NO_REG
             logger.warning(f"[Fiscal] {tercero} — {exc}")
             return resultado
 
@@ -96,7 +136,7 @@ class ConsultorFiscal(BaseConsultor):
             f"  Luego presione ENTER para continuar...\n"
             f"{'='*60}"
         )
-        input()
+        _esperar_confirmacion_captcha()
         logger.info("[Fiscal] Operador confirmó resolución de reCAPTCHA.")
 
     def _verificar_no_encontrado(self, tercero: TerceroData) -> None:

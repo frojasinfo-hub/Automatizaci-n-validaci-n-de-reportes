@@ -51,6 +51,7 @@ class ResultadoFuente:
     archivo_descargado: Optional[str] = None
     error_mensaje: Optional[str] = None
     intentos: int = 0
+    hallazgo: str = ""
     timestamp: datetime = field(default_factory=datetime.now)
 
 

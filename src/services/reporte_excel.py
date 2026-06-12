@@ -29,7 +29,10 @@ _COLORES_ESTADO: dict[str, str] = {
 
 _ENCABEZADOS = [
     "Cédula", "Tipo Doc", "Nombre", "Tipo Persona",
-    "Procuraduría", "Policía", "Fiscal", "Estado",
+    "Procuraduría", "Hallazgo Procuraduría",
+    "Policía",      "Hallazgo Policía",
+    "Fiscal",       "Hallazgo Fiscal",
+    "Estado",
     "Fecha", "Número de intentos", "Fecha segunda validación", "Observacion",
     "NIT Inspektor", "Dígito verificación", "NIT completo",
 ]
@@ -40,18 +43,21 @@ _C_TIPO_DOC = 2
 _C_NOMBRE = 3
 _C_TIPO_PERSONA = 4
 _C_PRO = 5
-_C_POL = 6
-_C_FIS = 7
-_C_ESTADO = 8
-_C_FECHA_PRIMERA = 9
-_C_CONSULTAS = 10
-_C_ULTIMA_CONSULTA = 11
-_C_ERROR = 12
-_C_NIT_BASE = 13
-_C_NIT_DV = 14
-_C_NIT_COMPLETO = 15
+_C_HALL_PRO = 6
+_C_POL = 7
+_C_HALL_POL = 8
+_C_FIS = 9
+_C_HALL_FIS = 10
+_C_ESTADO = 11
+_C_FECHA_PRIMERA = 12
+_C_CONSULTAS = 13
+_C_ULTIMA_CONSULTA = 14
+_C_ERROR = 15
+_C_NIT_BASE = 16
+_C_NIT_DV = 17
+_C_NIT_COMPLETO = 18
 
-_ANCHOS_COL = [15, 10, 40, 18, 15, 12, 12, 15, 12, 10, 18, 50, 12, 20, 15]
+_ANCHOS_COL = [15, 10, 40, 18, 15, 55, 12, 55, 12, 55, 15, 12, 10, 18, 50, 12, 20, 15]
 
 
 class ReporteExcel:
@@ -237,7 +243,7 @@ class ReporteExcel:
             nit_dv = nd[9]
             nit_completo = nd
 
-        datos: dict[int, object] = {
+        datos_estado: dict[int, object] = {
             _C_CEDULA: nd,
             _C_TIPO_DOC: resultado.tercero.tipo_documento,
             _C_NOMBRE: resultado.tercero.nombre_completo,
@@ -255,13 +261,25 @@ class ReporteExcel:
             _C_NIT_COMPLETO: nit_completo,
         }
 
-        color = _COLORES_ESTADO.get(estado_general, "FFFFFF")
-        fill = PatternFill(fill_type="solid", fgColor=color)
+        datos_hallazgo: dict[int, str] = {
+            _C_HALL_PRO: resultado.procuraduria.hallazgo,
+            _C_HALL_POL: "NO APLICA" if es_nit else resultado.policia.hallazgo,
+            _C_HALL_FIS: resultado.fiscal.hallazgo,
+        }
 
-        for col, valor in datos.items():
+        color = _COLORES_ESTADO.get(estado_general, "FFFFFF")
+        fill_estado = PatternFill(fill_type="solid", fgColor=color)
+        fill_hallazgo = PatternFill(fill_type="solid", fgColor="FFFFFF")
+
+        for col, valor in datos_estado.items():
             celda = ws.cell(row=fila, column=col, value=valor)
             celda.alignment = Alignment(horizontal="center")
-            celda.fill = fill
+            celda.fill = fill_estado
+
+        for col, valor in datos_hallazgo.items():
+            celda = ws.cell(row=fila, column=col, value=valor)
+            celda.alignment = Alignment(horizontal="left", wrap_text=True)
+            celda.fill = fill_hallazgo
 
     def _ajustar_columnas(self, ws) -> None:
         for idx, ancho in enumerate(_ANCHOS_COL, start=1):

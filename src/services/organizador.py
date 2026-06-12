@@ -10,9 +10,6 @@ from src.models.tercero import TerceroData
 
 logger = LoggerManager()
 
-_CARPETA_RAIZ = "CONSULTAS_AUTOMATIZADAS"
-
-
 class Organizador:
     """Crea la carpeta del tercero y mueve los PDFs renombrados a su destino final."""
 
@@ -20,7 +17,7 @@ class Organizador:
         self._output_folder = output_folder
 
     def carpeta_tercero(self, tercero: TerceroData) -> Path:
-        return self._output_folder / _CARPETA_RAIZ / tercero.carpeta_nombre
+        return self._output_folder / tercero.carpeta_nombre
 
     def crear_carpeta(self, tercero: TerceroData) -> Path:
         carpeta = self.carpeta_tercero(tercero)

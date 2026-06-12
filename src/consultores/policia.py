@@ -2,18 +2,49 @@
 
 from __future__ import annotations
 
+import time
 from pathlib import Path
 
 from src.core.base_consultor import BaseConsultor
 from src.infrastructure.logger_manager import LoggerManager
-from src.models.tercero import EstadoFuente, TerceroData
+from src.models.tercero import EstadoFuente, ResultadoFuente, TerceroData
 from src.services.notificador import Notificador
 
 logger = LoggerManager()
 notificador = Notificador()
 
+_SIGNAL_FILE = Path(__file__).parent.parent.parent / "captcha_signal.txt"
+
+
+def _esperar_confirmacion_captcha(timeout: int = 300) -> None:
+    _SIGNAL_FILE.write_text("")
+    start = time.time()
+    while time.time() - start < timeout:
+        if _SIGNAL_FILE.read_text().strip() == "CONFIRMED":
+            _SIGNAL_FILE.write_text("")
+            return
+        time.sleep(0.5)
+    raise TimeoutError("CAPTCHA no confirmado en 5 minutos")
+
 _URL_TERMINOS = "https://antecedentes.policia.gov.co:7005/WebJudicial/index.xhtml"
 _URL_RESULTADO = "formAntecedentes.xhtml"
+
+_HALL_POL_LIMPIO = "NO TIENE ASUNTOS PENDIENTES CON LAS AUTORIDADES JUDICIALES"
+_HALL_POL_LIBRE  = "ACTUALMENTE NO ES REQUERIDO POR AUTORIDAD JUDICIAL"
+
+
+def _extraer_hallazgo_policia(pdf_path: Path) -> str:
+    try:
+        import pdfplumber
+        with pdfplumber.open(pdf_path) as pdf:
+            texto = " ".join(p.extract_text() or "" for p in pdf.pages).upper()
+        if "NO TIENE ASUNTOS PENDIENTES" in texto:
+            return _HALL_POL_LIMPIO
+        if "NO ES REQUERIDO" in texto:
+            return _HALL_POL_LIBRE
+    except Exception:
+        pass
+    return ""
 
 _SEL_TIPO_DOC   = "select#formAntecedentes\\:selTipoDocumento, select[id*='TipoDocumento'], select[id*='tipoDocumento']"
 _SEL_NUM_DOC    = "input#formAntecedentes\\:txtNroDocumento, input[id*='NroDocumento'], input[id*='cedula']"
@@ -36,6 +67,14 @@ class ConsultorPolicia(BaseConsultor):
     @property
     def nombre_fuente(self) -> str:
         return "Policia"
+
+    def consultar(self, tercero: TerceroData) -> ResultadoFuente:
+        resultado = super().consultar(tercero)
+        if resultado.archivo_descargado:
+            resultado.hallazgo = _extraer_hallazgo_policia(
+                Path(resultado.archivo_descargado)
+            )
+        return resultado
 
     def _navegar(self) -> None:
         logger.info(f"[Policia] Navegando a términos: {_URL_TERMINOS}")
@@ -93,7 +132,7 @@ class ConsultorPolicia(BaseConsultor):
                 f"  el botón CONSULTAR activo antes de presionar ENTER\n"
                 f"{'='*60}"
             )
-            input()
+            _esperar_confirmacion_captcha()
             logger.info("[Policia] Operador confirmó reCAPTCHA.")
 
         # Clic en Consultar

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import time
 from pathlib import Path
 
 from src.core.base_consultor import BaseConsultor
@@ -11,6 +12,19 @@ from src.models.tercero import EstadoFuente, ResultadoFuente, TerceroData
 
 logger = LoggerManager()
 
+_SIGNAL_FILE = Path(__file__).parent.parent.parent / "captcha_signal.txt"
+
+
+def _esperar_confirmacion_captcha(timeout: int = 300) -> None:
+    _SIGNAL_FILE.write_text("")
+    start = time.time()
+    while time.time() - start < timeout:
+        if _SIGNAL_FILE.read_text().strip() == "CONFIRMED":
+            _SIGNAL_FILE.write_text("")
+            return
+        time.sleep(0.5)
+    raise TimeoutError("CAPTCHA no confirmado en 5 minutos")
+
 _URL = "https://apps.procuraduria.gov.co/webcert/inicio.aspx?tpo=2"
 _TIPO_DOC_VALUE = {"CC": "1", "NIT": "2"}
 _TEXTO_NO_ENCONTRADO = "NO SE ENCUENTRA REGISTRADO"
@@ -18,6 +32,24 @@ _SELECTORES_DESCARGA = (
     "#btnDescargar, input[name='btnDescargar'], "
     "input[id='btnDescargar'], input[type='image'][name*='Descargar']"
 )
+
+_HALL_PRO_LIMPIO = "NO REGISTRA SANCIONES NI INHABILIDADES VIGENTES"
+_HALL_PRO_CON    = "REGISTRA SANCIONES O INHABILIDADES VIGENTES"
+_HALL_PRO_NO_REG = "NO SE ENCUENTRA REGISTRADO EN EL SISTEMA"
+
+
+def _extraer_hallazgo_procuraduria(pdf_path: Path) -> str:
+    try:
+        import pdfplumber
+        with pdfplumber.open(pdf_path) as pdf:
+            texto = " ".join(p.extract_text() or "" for p in pdf.pages).upper()
+        if "NO REGISTRA SANCIONES" in texto:
+            return _HALL_PRO_LIMPIO
+        if "REGISTRA SANCIONES" in texto:
+            return _HALL_PRO_CON
+    except Exception:
+        pass
+    return _HALL_PRO_NO_REG
 
 class _RegistroNoEncontradoError(Exception):
     """El número de identificación no figura en la base de datos de Procuraduría."""
@@ -50,15 +82,22 @@ class ConsultorProcuraduria(BaseConsultor):
             resultado.estado = self._estado_exitoso
             resultado.archivo_descargado = str(existentes[0])
             resultado.error_mensaje = "Archivo ya existente"
+            resultado.hallazgo = _extraer_hallazgo_procuraduria(existentes[0])
             logger.info(f"[Procuraduria] {tercero} — archivo ya existe, omitiendo consulta.")
             return resultado
 
         try:
-            return super().consultar(tercero)
+            resultado = super().consultar(tercero)
+            if resultado.archivo_descargado:
+                resultado.hallazgo = _extraer_hallazgo_procuraduria(
+                    Path(resultado.archivo_descargado)
+                )
+            return resultado
         except _RegistroNoEncontradoError as exc:
             resultado = ResultadoFuente(fuente=self.nombre_fuente)
             resultado.estado = EstadoFuente.NO_ENCONTRADO
             resultado.error_mensaje = str(exc)
+            resultado.hallazgo = _HALL_PRO_NO_REG
             logger.warning(f"[Procuraduria] {tercero} — {exc}")
             return resultado
 
@@ -91,7 +130,7 @@ class ConsultorProcuraduria(BaseConsultor):
             f"del navegador y presione ENTER aquí cuando esté listo\n"
             f"{sep}"
         )
-        input()
+        _esperar_confirmacion_captcha()
         logger.info("[Procuraduria] Operador confirmó resolución de CAPTCHA.")
 
     def _webcert_frame(self):

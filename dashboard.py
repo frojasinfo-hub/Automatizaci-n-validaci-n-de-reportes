@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 import html
+import json
 import time
+from pathlib import Path
 from typing import Any
 
 import httpx
@@ -13,6 +15,11 @@ from urllib.parse import urlencode
 from login import _USERS, show_login
 
 API = "http://localhost:8000"
+
+_OUTPUT_CONSULTAS_LABEL: str = json.loads(
+    (Path(__file__).resolve().parent / "config" / "config.json")
+    .read_text(encoding="utf-8")
+).get("output_folder", "output/CONSULTAS_AUTOMATIZADAS")
 
 _ROLE_LABEL = {
     "admin": "Administrador",
@@ -34,6 +41,10 @@ _STATUS_BG: dict[str, str] = {
 }
 
 _STATUS_COLS = {"Procuraduría", "Policía", "Fiscal", "Estado"}
+
+_STATUS_DISPLAY: dict[str, str] = {
+    "AUTOMATICO": "AUTOMÁTICO",
+}
 
 _PAGE_GUARD: dict[str, tuple[str, ...]] = {
     "historial": ("supervisor", "admin"),
@@ -189,7 +200,8 @@ def _html_table(
         tds = ""
         for h in headers:
             val = str(r.get(h, ""))
-            escaped = html.escape(val)
+            display = _STATUS_DISPLAY.get(val, val) if h in _STATUS_COLS else val
+            escaped = html.escape(display)
             if h in _STATUS_COLS and val in _STATUS_BG:
                 bg = _STATUS_BG[val]
                 tds += (
@@ -269,7 +281,7 @@ def _docs_por_tercero(rows: list[dict[str, Any]]) -> None:
     )
     st.markdown(
         '<p style="color:#666;font-size:13px;margin:4px 0 12px 16px">'
-        "Certificados en <code>output/CONSULTAS_AUTOMATIZADAS/</code></p>",
+        f"Certificados en <code>{html.escape(_OUTPUT_CONSULTAS_LABEL)}/</code></p>",
         unsafe_allow_html=True,
     )
 
@@ -304,7 +316,7 @@ def _docs_por_tercero(rows: list[dict[str, Any]]) -> None:
 
             st.markdown(
                 f'<p style="color:#666;font-size:12px;margin-bottom:10px">'
-                f"📂 <code>output/CONSULTAS_AUTOMATIZADAS/"
+                f"📂 <code>{html.escape(_OUTPUT_CONSULTAS_LABEL)}/"
                 f"{html.escape(folder)}/</code></p>",
                 unsafe_allow_html=True,
             )
@@ -492,7 +504,23 @@ def _page_nueva_consulta() -> None:
             accept_multiple_files=True,
             key="uploader",
         )
+        st.caption("Máximo 20 PDFs por ejecución. Formatos aceptados: .pdf")
         if archivos and st.button("⬆️  Subir archivos", type="primary"):
+            if len(archivos) > 20:
+                st.warning(
+                    "⚠️ Se seleccionaron más de 20 archivos. "
+                    "Solo se procesarán los primeros 20."
+                )
+                archivos = archivos[:20]
+            _INSPEKTOR_KW = {
+                "reporte", "consulta", "inspektor", "individual", "servicios"
+            }
+            for archivo in archivos:
+                if not any(kw in archivo.name.lower() for kw in _INSPEKTOR_KW):
+                    st.warning(
+                        f"⚠️ Este archivo puede no ser un reporte de Inspektor: "
+                        f"**{archivo.name}**. Verifique antes de continuar."
+                    )
             ok = err = 0
             bar = st.progress(0)
             for i, archivo in enumerate(archivos):
@@ -513,9 +541,8 @@ def _page_nueva_consulta() -> None:
                     else:
                         err += 1
                         st.warning(f"✗ {archivo.name}: {resp.text}")
-                except Exception as exc:
+                except Exception:
                     err += 1
-                    st.error(str(exc))
                 bar.progress((i + 1) / len(archivos))
             if ok:
                 st.success(f"✓ {ok} archivo(s) subido(s) correctamente")
@@ -539,6 +566,50 @@ def _page_nueva_consulta() -> None:
                         f'<span style="color:#888">{f["size_kb"]} KB</span></div>',
                         unsafe_allow_html=True,
                     )
+                st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
+                if not st.session_state.get("confirm_clear"):
+                    if st.button(
+                        "🗑️ Limpiar cola",
+                        key="btn_limpiar_cola",
+                        use_container_width=False,
+                    ):
+                        st.session_state.confirm_clear = True
+                        st.rerun()
+                else:
+                    st.warning(
+                        f"¿Seguro? Esto moverá **{len(files)}** archivo(s) "
+                        "a `input/pdfs/procesados/`."
+                    )
+                    c_ok, c_cancel = st.columns(2)
+                    with c_ok:
+                        if st.button(
+                            "✅ Confirmar",
+                            key="btn_confirm_clear",
+                            type="primary",
+                            use_container_width=True,
+                        ):
+                            try:
+                                r = httpx.delete(
+                                    f"{API}/api/files/clear", timeout=10
+                                )
+                                data_c = r.json()
+                                st.success(
+                                    f"✓ {data_c['moved']} archivo(s) movido(s) "
+                                    "a procesados."
+                                )
+                            except Exception as exc:
+                                st.error(f"Error al limpiar cola: {exc}")
+                            st.session_state.confirm_clear = False
+                            _fetch_files.clear()
+                            st.rerun()
+                    with c_cancel:
+                        if st.button(
+                            "❌ Cancelar",
+                            key="btn_cancel_clear",
+                            use_container_width=True,
+                        ):
+                            st.session_state.confirm_clear = False
+                            st.rerun()
             else:
                 st.caption("No hay PDFs en la carpeta de entrada.")
         except Exception:
@@ -546,9 +617,12 @@ def _page_nueva_consulta() -> None:
 
     with col_run:
         st.markdown('<div class="sec-title">2. Iniciar proceso</div>', unsafe_allow_html=True)
-        st.info(
-            "Se abrirá una ventana de terminal separada donde el operador "
-            "resuelve los CAPTCHAs manualmente."
+        st.markdown(
+            '<p style="color:#555;font-size:13px;margin:0 0 10px">'
+            "El proceso iniciará en segundo plano. Cuando aparezca el navegador, "
+            "resuelva el CAPTCHA y haga clic en "
+            "<strong>Confirmar CAPTCHA resuelto</strong>.</p>",
+            unsafe_allow_html=True,
         )
         if st.button(
             "▶  Iniciar Automatización",
@@ -574,32 +648,58 @@ def _page_nueva_consulta() -> None:
         try:
             data = _api("/api/automation/status")
             status = data.get("status", "idle")
-            _lmap = {
-                "idle":    ("⏸", "Inactivo"),
-                "running": ("🔄", "En ejecución..."),
-                "done":    ("✅", "Completado"),
-                "error":   ("❌", "Error"),
+            _card_cfg = {
+                "idle":    ("#95a5a6", "#F4F4F4", "⏸", "Sin proceso activo"),
+                "running": ("#3498db", "#EBF5FB", "🔄", "Procesando..."),
+                "done":    ("#27ae60", "#EAFAF1", "✅", "Proceso completado"),
+                "error":   ("#e74c3c", "#FDEDEC", "❌", "Ocurrió un error"),
             }
-            icon, lbl = _lmap.get(status, ("⏸", status))
+            color, bg, icon, lbl = _card_cfg.get(
+                status, ("#95a5a6", "#F4F4F4", "⏸", status)
+            )
             st.markdown(
-                f'<div style="color:#1A1A1A;font-size:14px;font-weight:600">'
-                f"{icon} {lbl}</div>",
+                f'<div style="background:{bg};border-left:4px solid {color};'
+                f"border-radius:8px;padding:14px 18px;margin:4px 0 12px\">"
+                f'<span style="font-size:22px">{icon}</span>'
+                f'<span style="color:{color};font-weight:700;font-size:15px;'
+                f'margin-left:10px">{lbl}</span></div>',
                 unsafe_allow_html=True,
             )
-            log = data.get("log", [])
-            if log:
-                st.code("\n".join(log[-10:]), language="text")
             if status == "running":
+                st.markdown(
+                    '<div style="background:#EBF5FB;border:1px solid #AED6F1;'
+                    "border-radius:8px;padding:12px 16px;margin-bottom:10px;"
+                    'font-size:13px;color:#1A5276">'
+                    "🌐 El navegador está abierto. Resuelva el CAPTCHA en el "
+                    "navegador y luego confirme aquí.</div>",
+                    unsafe_allow_html=True,
+                )
+                if st.button(
+                    "✅  CAPTCHA Resuelto — Continuar",
+                    type="primary",
+                    use_container_width=True,
+                    key="btn_captcha_confirm",
+                ):
+                    try:
+                        r = httpx.post(
+                            f"{API}/api/automation/captcha_confirm", timeout=5
+                        )
+                        if r.json().get("status") == "ok":
+                            st.success("Confirmado. El proceso continúa.")
+                        else:
+                            st.warning("No hay proceso activo en este momento.")
+                    except Exception:
+                        st.error("No se pudo confirmar. Verifique que la API esté activa.")
                 c_ref, c_aut = st.columns(2)
                 with c_ref:
-                    if st.button("🔄 Actualizar"):
+                    if st.button("🔄 Actualizar", key="btn_ref_nc"):
                         st.rerun()
                 with c_aut:
-                    if st.checkbox("Auto 3s"):
+                    if st.checkbox("Auto 3s", key="chk_auto_nc"):
                         time.sleep(3)
                         st.rerun()
-        except Exception as exc:
-            st.error(f"No se puede conectar: {exc}")
+        except Exception:
+            st.warning("No se pudo obtener el estado del proceso.")
 
 
 def _page_resultados() -> None:
@@ -626,6 +726,19 @@ def _page_resultados() -> None:
 
     with c_dl:
         _excel_download_btn(key="dl_excel_res")
+
+    try:
+        if _fetch_api_status().get("status") == "done":
+            st.markdown(
+                '<div style="background:#EAFAF1;border:1px solid #A9DFBF;'
+                "border-radius:8px;padding:14px 20px;margin-bottom:12px;"
+                'font-size:14px;color:#1E8449;font-weight:600">'
+                "✅ Proceso completado exitosamente. "
+                "Aquí están los certificados generados.</div>",
+                unsafe_allow_html=True,
+            )
+    except Exception:
+        pass
 
     st.caption(f"Total: {len(rows)} tercero(s)")
     st.markdown(_html_table(rows), unsafe_allow_html=True)
@@ -714,7 +827,7 @@ def _page_historial() -> None:
             ).json()
             if pdfs:
                 st.caption(
-                    f"📂 `output/CONSULTAS_AUTOMATIZADAS/{seleccionado}/`"
+                    f"📂 `{_OUTPUT_CONSULTAS_LABEL}/{seleccionado}/`"
                 )
                 for pdf in pdfs:
                     try:
